@@ -15,6 +15,7 @@ export interface RecipeData {
   milk: MilkType;
   topping: ToppingType;
   nutrition: NutritionInfo;
+  advancedMetrics: AdvancedMetrics;
 }
 
 export function useCoffeeRecipe() {
@@ -32,11 +33,12 @@ export function useCoffeeRecipe() {
   const getRecipeData = useCallback((): RecipeData => {
     const coffee = coffeeTypes.find(c => c.id === recipe.coffeeType) || coffeeTypes[0];
     const milk = milkTypes.find(m => m.id === recipe.milkType) || milkTypes[0];
-    const topping = toppingTypes.find(t => t.id === recipe.toppings[0]) || toppingTypes[3];
+    const topping = toppingTypes.find(t => t.id === recipe.toppings[0]) || toppingTypes[toppingTypes.length - 1];
     
     const nutrition = calculateNutrition(coffee, milk, recipe.sugarLevel, topping);
+    const advancedMetrics = calculateAdvancedMetrics(coffee, milk, recipe.sugarLevel, topping, nutrition);
 
-    return { coffee, milk, topping, nutrition };
+    return { coffee, milk, topping, nutrition, advancedMetrics };
   }, [recipe]);
 
   const updateCoffeeType = useCallback((coffeeType: string) => {
