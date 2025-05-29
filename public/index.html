@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Customizer - Craft Your Perfect Cup</title>
+    <meta name="description" content="Design your perfect coffee with our interactive customizer. Choose from espresso, latte, cappuccino and more with custom milk, sugar, and toppings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    Coffee Customizer
+                </h1>
+                <p class="subtitle">Craft your perfect cup, one choice at a time</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="customizer-grid">
+                <!-- Customization Panel -->
+                <div class="customization-panel">
+                    <!-- Coffee Type Selector -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-coffee"></i>
+                                Choose Your Coffee
+                            </h2>
+                            <div class="coffee-options" id="coffeeOptions">
+                                <!-- Coffee options will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milk Selector -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-tint"></i>
+                                Milk Choice
+                            </h2>
+                            <div class="milk-options" id="milkOptions">
+                                <!-- Milk options will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sugar Slider -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-star"></i>
+                                Sweetness Level
+                            </h2>
+                            <div class="sugar-controls">
+                                <div class="slider-labels">
+                                    <span>No Sugar</span>
+                                    <span>Very Sweet</span>
+                                </div>
+                                <input type="range" id="sugarSlider" min="0" max="5" value="2" class="sugar-slider">
+                                <div class="sugar-display">
+                                    <span id="sugarValue" class="sugar-badge">2 teaspoons</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toppings Selector -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-star"></i>
+                                Toppings
+                            </h2>
+                            <div class="topping-options" id="toppingOptions">
+                                <!-- Topping options will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <div class="action-buttons">
+                                <button id="saveBtn" class="btn btn-primary">
+                                    <i class="fas fa-heart"></i>
+                                    Save My Favorite
+                                </button>
+                                <button id="loadBtn" class="btn btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Load Favorite
+                                </button>
+                                <button id="exportBtn" class="btn btn-accent">
+                                    <i class="fas fa-file-text"></i>
+                                    Export Recipe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe Display -->
+                <div class="recipe-panel">
+                    <!-- Coffee Preview -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-eye"></i>
+                                Your Coffee Preview
+                            </h2>
+                            <div class="coffee-preview" id="coffeePreview">
+                                <div class="coffee-image-container">
+                                    <img id="coffeeImage" src="" alt="Coffee preview" class="coffee-image">
+                                </div>
+                                <h3 id="coffeeTitle" class="coffee-title">Espresso with Whole Milk</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brewing Instructions -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">
+                                <i class="fas fa-list"></i>
+                                Brewing Instructions
+                            </h2>
+                            <div id="brewingInstructions" class="brewing-instructions">
+                                <!-- Instructions will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brew Details -->
+                    <div class="brew-details">
+                        <div class="card coffee-card">
+                            <div class="card-content detail-card">
+                                <i class="fas fa-clock detail-icon"></i>
+                                <h3>Brew Time</h3>
+                                <p id="brewTime">25-30 seconds</p>
+                            </div>
+                        </div>
+                        <div class="card coffee-card">
+                            <div class="card-content detail-card">
+                                <i class="fas fa-thermometer-half detail-icon"></i>
+                                <h3>Temperature</h3>
+                                <p id="brewTemp">195-205°F</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nutritional Information -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">Complete Nutritional Analysis</h2>
+                            <div class="nutrition-main" id="nutritionMain">
+                                <!-- Main nutrition facts -->
+                            </div>
+                            <div class="nutrition-detailed" id="nutritionDetailed">
+                                <!-- Detailed nutrition facts -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Metrics -->
+                    <div class="card coffee-card">
+                        <div class="card-content">
+                            <h2 class="section-title">Advanced Metrics & Health Analysis</h2>
+                            <div class="metrics-grid" id="advancedMetrics">
+                                <!-- Advanced metrics will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <p>Loading your favorite recipe...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/nutrition.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
