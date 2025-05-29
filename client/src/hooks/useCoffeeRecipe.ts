@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { coffeeTypes, milkTypes, toppingTypes, CoffeeType, MilkType, ToppingType } from '@/lib/coffeeData';
-import { calculateNutrition, NutritionInfo } from '@/lib/nutritionCalculator';
+import { calculateNutrition, calculateAdvancedMetrics, NutritionInfo, AdvancedMetrics } from '@/lib/nutritionCalculator';
 import { useToast } from '@/hooks/use-toast';
 
 export interface CoffeeRecipe {

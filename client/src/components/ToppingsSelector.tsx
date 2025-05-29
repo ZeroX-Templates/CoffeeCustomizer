@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { toppingTypes } from "@/lib/coffeeData";
-import { Star, Cookie, Cloud, X } from "lucide-react";
+import { Star, Cookie, Cloud, X, Droplets, Candy, Circle, Snowflake, Leaf, Waves, Coffee, Flower, Zap } from "lucide-react";
 
 interface ToppingsSelectorProps {
   selectedTopping: string;
@@ -11,6 +11,19 @@ const toppingIcons = {
   cinnamon: Star,
   cocoa: Cookie,
   whipped: Cloud,
+  'vanilla-syrup': Droplets,
+  'caramel-syrup': Candy,
+  'hazelnut-syrup': Circle,
+  'chocolate-chips': Cookie,
+  marshmallows: Cloud,
+  nutmeg: Star,
+  cardamom: Leaf,
+  'sea-salt': Waves,
+  'coconut-flakes': Snowflake,
+  honey: Star,
+  'maple-syrup': Leaf,
+  lavender: Flower,
+  'espresso-powder': Coffee,
   none: X
 };
 
