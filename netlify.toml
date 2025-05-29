@@ -1,3 +1,14 @@
+# netlify.toml
+
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "dist"   # folder with your built frontend files
+
+[functions]
+  directory = "netlify/functions"  # where your serverless functions (API) live
+
+# Redirect API requests to serverless functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
